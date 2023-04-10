@@ -32,7 +32,7 @@ do
     esac
 done
 
-preprocessed_dir=${DATASETS_DIR}/bpeBART-${BART_SCALE}/fairseq-preprocess
+preprocessed_dir=${DATASETS_DIR}/SNOW/bpeBART-${BART_SCALE}/fairseq-preprocess
 save_dir=${RESULT_DIR}/bpeBART-${BART_SCALE}/${EXP_NAME}
 rm -fr $save_dir
 mkdir -p $save_dir
@@ -49,7 +49,7 @@ CUDA_VISIBLE_DEVICES=$GPU_ID fairseq-train $preprocessed_dir \
     --source-lang $src_lang --target-lang $tgt_lang \
     --optimizer adam --adam-betas '{0.9, 0.98}' --adam-eps 1e-06 \
     --reset-optimizer --reset-meters --reset-dataloader --reset-lr-scheduler \
-    --lr 3e-5 --min-lr -1 --lr-scheduler polynomial_decay --warmup-updates 500 \
+    --lr 3e-5 --lr-scheduler polynomial_decay --warmup-updates 500 \
     --dropout 0.2 --weight-decay 0.0001 --clip-norm 0.1 \
     --criterion label_smoothed_cross_entropy --label-smoothing 0.1 \
     --seed $SEED \
@@ -60,4 +60,3 @@ CUDA_VISIBLE_DEVICES=$GPU_ID fairseq-train $preprocessed_dir \
     --encoder-normalize-before --decoder-normalize-before \
     --log-format simple --patience 10 --fp16 \
     2>&1 | tee -a ${save_dir}/train.log
-#   
