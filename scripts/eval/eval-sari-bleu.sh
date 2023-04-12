@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # --- PATH settings ---
-DATASETS_DIR=../../datasets
-RESULT_DIR=../../results
+DATASETS_DIR=../../datasets/SNOW
+RESULT_DIR=../../results/SNOW
 UTILS_DIR=../../utils
 
 BPE_TOKENS=16000
@@ -46,7 +46,7 @@ if type easse > /dev/null 2>&1; then
 else
     echo "[Info] easse not exists, start installation to ${UTILS_DIR}/easse"
     pushd $UTILS_DIR
-    git clone https://github.com/feralvam/easse.git
+    git clone https://github.com/koretaka-ai/easse.git
     cd easse
     pip install -e .
     popd
@@ -63,11 +63,11 @@ fi
 if [ $BPE_TOKENS == "BART" ]; then
     model=${RESULT_DIR}/bpeBART-${BART_SCALE}/${EXP_NAME}/checkpoints/${MODEL}
     output_dir=${RESULT_DIR}/bpeBART-${BART_SCALE}/${EXP_NAME}/${MODE}
-    input_dir=${DATASETS_DIR}/SNOW/bpeBART-${BART_SCALE}
+    input_dir=${DATASETS_DIR}/tok/bpeBART-${BART_SCALE}
     preprocessed_dir=${input_dir}/fairseq-preprocess
 else
     model=${RESULT_DIR}/bpe${BPE_TOKENS}/${EXP_NAME}/checkpoints/${MODEL}
-    output_dir=${RESULT_DIR}/bpeBART-${BART_SCALE}/${EXP_NAME}/${MODE}
+    output_dir=${RESULT_DIR}/bpe${BPE_TOKENS}/${EXP_NAME}/${MODE}
     input_dir=${DATASETS_DIR}/tok/bpe${BPE_TOKENS}
     preprocessed_dir=${input_dir}/fairseq-preprocess
 fi
