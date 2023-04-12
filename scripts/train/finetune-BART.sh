@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # --- PATH settings ---
-DATASETS_DIR=../../datasets
+DATASETS_DIR=../../datasets/SNOW
 PRE_TRAINED_DIR=../../pre-trained
-RESULT_DIR=../../results
+RESULT_DIR=../../results/SNOW
 
 BART_SCALE=base
 EXP_NAME=BART_base
 GPU_ID=0
 SEED=1
+
 while getopts d:g:hln:p:r:s: OPT
 do
     case $OPT in
@@ -32,7 +33,7 @@ do
     esac
 done
 
-preprocessed_dir=${DATASETS_DIR}/SNOW/bpeBART-${BART_SCALE}/fairseq-preprocess
+preprocessed_dir=${DATASETS_DIR}/tok/bpeBART-${BART_SCALE}/fairseq-preprocess
 save_dir=${RESULT_DIR}/bpeBART-${BART_SCALE}/${EXP_NAME}
 rm -fr $save_dir
 mkdir -p $save_dir

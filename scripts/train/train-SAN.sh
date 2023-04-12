@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # --- PATH settings ---
-DATASETS_DIR=../../datasets
-RESULT_DIR=../../results
+DATASETS_DIR=../../datasets/SNOW
+RESULT_DIR=../../results/SNOW
 
 BPE_TOKENS=16000
 EXP_NAME=SAN
@@ -29,7 +29,7 @@ do
     esac
 done
 
-preprocessed_dir=${DATASETS_DIR}/SNOW/tok/bpe${BPE_TOKENS}/fairseq-preprocess
+preprocessed_dir=${DATASETS_DIR}/tok/bpe${BPE_TOKENS}/fairseq-preprocess
 save_dir=${RESULT_DIR}/bpe${BPE_TOKENS}/${EXP_NAME}
 rm -fr $save_dir
 mkdir -p $save_dir

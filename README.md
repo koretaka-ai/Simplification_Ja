@@ -29,17 +29,17 @@ conda create -n simplification_ja python=3.9 -y
 conda activate simplification_ja
 ~~~
 ## 必要なライブラリのインストール
-- fairseq
+- fairseq (https://github.com/utanaka2000/fairseq/blob/japanese_bart_pretrained_model/JAPANESE_BART_README.md)
 ~~~
 pushd utils
-git clone https://github.com/pytorch/fairseq
+git clone -b japanese_bart_pretrained_model https://github.com/utanaka2000/fairseq.git
 cd fairseq
 pip install --editable ./
 popd
 ~~~
 - torch ([cudaと合うversionをinstall](https://pytorch.org/get-started/previous-versions/))
 ~~~
-pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 ~~~
 - cuda path setting
 ~~~
@@ -64,3 +64,9 @@ pip install pyknp
 pip install sentencepiece
 ~~~
 - [jumanpp](https://github.com/ku-nlp/jumanpp) 
+
+# データの準備
+- 訓練データセットは[SNOW T15:やさしい日本語コーパス](https://www.jnlp.org/GengoHouse/snow/t15)と[SNOW T23:やさしい日本語拡張コーパス](https://www.jnlp.org/GengoHouse/snow/t23)を用います。
+
+# モデルの訓練
+# モデルの評価

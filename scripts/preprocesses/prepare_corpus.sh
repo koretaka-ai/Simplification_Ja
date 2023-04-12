@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # --- PATH settings ---
-DATASETS_DIR=../../datasets
-RESOURCE_DIR=../../resource
+DATASETS_DIR=../../datasets/SNOW
+RESOURCE_DIR=../../resource/SNOW
 PRE_TRAINED_DIR=../../pre-trained/
 
 BART_SCALE=base
@@ -27,9 +27,9 @@ PREPROCESSER=$(dirname $0)/jaBART_preprocess.py
 bpe_model=${PRE_TRAINED_DIR}/japanese_bart_${BART_SCALE}_2.0/sp.model
 bpe_dict=${PRE_TRAINED_DIR}/japanese_bart_${BART_SCALE}_2.0/dict.txt
 
-orig_path=${RESOURCE_DIR}/SNOW
-tok_path=${DATASETS_DIR}/SNOW/tok
-bpe_path=${DATASETS_DIR}/SNOW/bpeBART-${BART_SCALE}
+orig_path=${RESOURCE_DIR}
+tok_path=${DATASETS_DIR}/tok
+bpe_path=${tok_path}/bpeBART-${BART_SCALE}
 mkdir -p ${orig_path}/T15 ${orig_path}/T23 $tok_path $bpe_path
 
 # Japanese BART base(large) v2.0 download
