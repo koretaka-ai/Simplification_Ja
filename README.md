@@ -16,7 +16,7 @@ git clone https://github.com/koretaka-ai/Simplification_Ja.git
 ~~~
 ## 仮想環境構築
 ~~~
-conda create -n simplification_ja python=3.9 -y
+conda create -n simplification_ja python=3.8 -y
 conda activate simplification_ja
 ~~~
 ## 必要なライブラリのインストール
