@@ -112,10 +112,3 @@ bash eval-sari-bleu.sh -n ${実験名} -g ${GPUのID} -b BART -l
 
 popd
 ~~~
- 
-| 結果 |  BLEU  | SARI |
-| ---- | ---- | ---- |
-|  transformer  |  76.161  | 63.331 |
-|  BART-base  |  84.165  | 64.019 |
-|  BART-large  |  86.033  | 64.621 |
-

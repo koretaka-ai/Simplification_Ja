@@ -8,7 +8,7 @@ def parse_args():
     parser.add_argument('output_valid_file_name', default="valid", help="Splited valid file path")
     parser.add_argument('-s', '--src_lang', default="comp")
     parser.add_argument('-t', '--tgt_lang', default="simp")
-    parser.add_argument('-n', '--num', type=int, default=500)
+    parser.add_argument('-n', '--num', type=int, default=2000)
     parser.add_argument('--seed', type=int, default=42)
     
     args = parser.parse_args()
