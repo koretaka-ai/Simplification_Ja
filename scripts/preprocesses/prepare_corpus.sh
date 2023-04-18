@@ -3,7 +3,7 @@
 # --- PATH settings ---
 DATASETS_DIR=../../datasets/SNOW
 RESOURCE_DIR=../../resource/SNOW
-PRE_TRAINED_DIR=../../pre-trained/
+PRE_TRAINED_DIR=../../pre-trained
 
 BART_SCALE=base
 while getopts d:hlr: OPT
